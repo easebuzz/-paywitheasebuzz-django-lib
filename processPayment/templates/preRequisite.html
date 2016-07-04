@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+{% block content %}
+<body>
+    <div assign="center">
+        <form id="preRequisiteForm" name="preRequisiteForm" action="{% url 'PWE_Form' %}"  method="post">
+        {% csrf_token %}
+        {{ easePayForm.errors.non_field_errors }}
+        <table assign="center">
+            <tr>
+                <td>Payer</td>
+                <td><input type="text" name="payer"></td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ preRequisiteForm.payer.errors }}</td>
+            </tr>
+            <tr>
+                <td>Amount</td>
+                <td><input type="text" name="amount"></td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ preRequisiteForm.amount.errors }}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ preRequisiteForm.email.errors }}</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ preRequisiteForm.phone.errors }}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value = 'Submit'>
+                </td>
+            </tr>
+            </table>
+        </form>
+    </div>
+</body>
+{% endblock %}
+</html>
