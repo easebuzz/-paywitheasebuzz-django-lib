@@ -5,6 +5,6 @@ Steps
 
 1) Open the project
 2) Go to settings.py
-3) Change salt and key to the ones sent to you buy PayWithEasebuzz
+3) Change salt and key to the ones sent to you by PayWithEasebuzz
 4) Run the Project
  
