@@ -83,8 +83,8 @@ DATABASES = {
     }
 }
 
-MERCHANT_KEY = 'EZJVVQ8RSA'
-SALT = 'SWAR5HSM18'
+MERCHANT_KEY = 'XXXXXXXXX'
+SALT = 'XXXXXXXXX'
 ENV='test'
 URL_PAY="https://testpay.easebuzz.in/pay/"
 URL_GETLINK="http://testpay.easebuzz.in/payment/initiateLink"
