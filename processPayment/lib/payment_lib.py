@@ -21,7 +21,7 @@ def generate_hash(data):
     for key in data:
         hashstring=hashstring+str(key)+"|"
     hashstring=hashstring+settings.SALT
-    return sha512(hashstring).hexdigest().lower()
+    return sha512(hashstring.encode('utf-8')).hexdigest().lower()
 
 def get_redirect_url(item):
     a= requests.post(settings.URL_GETLINK,data=item)
@@ -33,7 +33,7 @@ def verify_hash(data, status):
     for key in reversed(data):
         hashstring = hashstring+str(key)+"|"
     hashstring = hashstring[:-1]
-    return sha512(hashstring).hexdigest().lower()
+    return sha512(hashstring.encode('utf-8')).hexdigest().lower()
 
 def send_redirect(link_id):
     return HttpResponse("""
