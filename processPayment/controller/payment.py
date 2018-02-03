@@ -33,7 +33,12 @@ def proceedToPayment(request,txnId):
     amount = request.POST['amount'].strip()
     uemail = request.POST['email'].strip()
     uphone = request.POST['phone'].strip()
-    KEYS = [settings.MERCHANT_KEY,txnId, amount, 'anyText', uname, uemail,'', '', '', '', '','', '', '', '', '']
+    udf1=''
+    udf2=''
+    udf3=''
+    udf4=''
+    udf5=''
+    KEYS = [settings.MERCHANT_KEY,txnId, amount, 'anyText', uname, uemail,udf1,udf2,udf3,udf4,udf5,'', '', '', '', '']
     hash=generate_hash(KEYS)
     print hash
     item = {
@@ -47,11 +52,11 @@ def proceedToPayment(request,txnId):
                 "surl": request.build_absolute_uri(reverse('epSuccessPayment')),
                 "furl": request.build_absolute_uri(reverse('epFailPayment')),
                 "hash": hash,
-                "udf1": "",
-                "udf2": "",
-                "udf3": "",
-                "udf4": "",
-                "udf5": ""
+                "udf1": udf1,
+                "udf2": udf2,
+                "udf3": udf3,
+                "udf4": udf4,
+                "udf5": udf5
                 }
     resp = get_redirect_url(item)
     r = serialize(resp.content)
