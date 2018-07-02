@@ -20,18 +20,27 @@ https://docs.easebuzz.in/
 *Once set up python environment then follow below steps*
 1. clone paywitheasebuzz-python-django-lib on your's system.
 2. unzip paywitheasebuzz-python-django-lib.
-3. goto your's python environment folder like.
-    ENV/python27_django_1_11_13/ 
-   1. active enviroments using below command.
-           ```
-               source bin/activate
-           ```
-   2. goto paywitheasebuzz-python-django-lib kit folder like and run command.
-        (python27_django_1_11_13) abc@abc:~/Python_Project/ENV/python27_django_1_11_13/
+3. if set up virtual environment
+    1. goto your's python environment folder using terminal or command prompt.
+        ENV/python27_django_1_11_13/ 
+       1. active enviroments using below command.
+               ```
+                   source bin/activate
+               ```
+       2. goto paywitheasebuzz-python-django-lib kit folder and run command like
+            (python27_django_1_11_13) abc@abc:~/Python_Project/ENV/python27_django_1_11_13/
+            ```
+                python manage.py runserver
+            ```
+       3. type URL: http://127.0.0.1:8000/
+       
+    2. goto kit directory.
+        python27_django_1_11_13/
+        1. run the below command.
         ```
             python manage.py runserver
         ```
-   3. type URL: http://127.0.0.1:8000/
+        2. type URL: http://127.0.0.1:8000/
 
 
 # Process for integrating paywitheasebuzz-python-django-lib kit in "Project"
