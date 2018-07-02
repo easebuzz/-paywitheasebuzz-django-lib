@@ -1,0 +1,42 @@
+<!--extends the base_layout.html-->
+{% extends "base_layout.html" %}
+
+{% block content %}
+            <div class="hedding">
+                <h2><a class="highlight" href="{% url 'index' %}">Back</a></h2>
+            </div>
+        </header>
+    </div>
+
+    <div class="form-container">
+        <h2>PAYOUT API</h2>
+        <hr>
+        <form method="POST" action="{% url 'payout' %}">
+            <!--add csrf token for sending data to the server-->
+            {% csrf_token %}
+            
+            <div class="main-form">
+                <h3>Mandatory Parameters</h3>
+                <hr>
+                <div class="mandatory-data">
+                    <div class="form-field">
+                        <label for="merchant_email">Merchant Email ID<sup>*</sup></label>
+                        <input id="merchant_email" class="merchant_email" name="merchant_email" value=""
+                        placeholder="payout@easebuzz.in">
+                    </div>
+    
+                    <div class="form-field">
+                        <label for="payout_date">Payout Date<sup>*</sup></label>
+                        <input id="payout_date" class="payout_date" name="payout_date" value="" placeholder="DD-MM-YYYY">
+                    </div>
+    
+                </div>
+            
+                <div class="btn-submit">
+                    <button type="submit">Submit</button>  
+                </div> 
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

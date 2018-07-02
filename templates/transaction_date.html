@@ -1,0 +1,41 @@
+<!--extends the base_layout.html-->
+{% extends "base_layout.html" %}
+
+{% block content %}
+            <div class="hedding">
+                <h2><a class="highlight" href="{% url 'index' %}">Back</a></h2>
+            </div>
+        </header>
+    </div>
+    
+    <div class="form-container">
+        <h2>TRANSACTION DATE API</h2>
+        <hr>
+        <form method="POST" action="{% url 'transaction_date' %}">
+            <!--add csrf token for sending data to the server-->
+            {% csrf_token %}
+            
+            <div class="main-form">
+                <h3>Mandatory Parameters</h3>
+                <hr>
+                <div class="mandatory-data">
+                    <div class="form-field">
+                        <label for="merchant_email">Merchant Email ID<sup>*</sup></label>
+                        <input id="merchant_email" class="merchant_email" name="merchant_email" value=""
+                        placeholder="date.transaction@easebuzz.in">
+                    </div>
+    
+                    <div class="form-field">
+                        <label for="transaction_date">Transation Date<sup>*</sup></label>
+                        <input id="transaction_date" class="transaction_date" name="transaction_date" value="" placeholder="DD-MM-YYYY">
+                    </div>         
+                </div>
+                
+                <div class="btn-submit">
+                    <button type="submit">Submit</button>  
+                </div> 
+            </div>           
+        </form>
+    </div>
+
+{% endblock content %}

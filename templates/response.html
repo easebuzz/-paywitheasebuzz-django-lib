@@ -1,0 +1,19 @@
+<!--extends the base_layout.html-->
+{% extends "base_layout.html" %}
+
+{% block content %}
+    <div class="hedding">
+            <h2><a class="highlight" href="{% url 'index' %}">Back</a></h2>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>API RESPONSE</h2>
+        <hr>
+        <!--add csrf token for sending data to the server-->
+        <!-- {% csrf_token %} -->
+        <p>
+            {{ response_data }}
+        </p>
+    </div>
+{% endblock content %}

@@ -1,0 +1,38 @@
+<!--extends the base_layout.html-->
+{% extends "base_layout.html" %}
+
+{% block content %}
+        <div class="hedding">
+            <a href="https://docs.easebuzz.in/">
+                <h2><spam>Easebuzz Documentation</spam></h2>
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card-container">
+            <div class="card">
+                <h2>Easebuzz-lib For Django(Python)</h2>
+                <hr>
+                <p>There are five Easebuzz Payment Gateway API</p>
+                <ul class="tabs">
+                    <li id="initiate_payment_tab">
+                        <a href="{% url 'initiate_payment' %}">Initiate Payment API</a>
+                    </li>
+                    <li id="transaction_tab">
+                        <a href="{% url 'transaction' %}">Transaction API</a>
+                    </li>
+                    <li id="transaction_date_tab">
+                        <a href="{% url 'transaction_date' %}">Transaction Date API</a>
+                    </li>
+                    <li id="refund_tab">
+                        <a href="{% url 'refund' %}">Refund API</a>
+                    </li>
+                    <li id="payout_tab">
+                        <a href="{% url 'payout' %}">Payout API</a>
+                    </li>
+                </ul>
+            </div>   
+        </div>
+    </div>
+{% endblock content %}

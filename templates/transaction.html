@@ -1,0 +1,51 @@
+<!--extends the base_layout.html-->
+{% extends "base_layout.html" %}
+
+{% block content %}
+            <div class="hedding">
+                <h2><a class="highlight" href="{% url 'index' %}">Back</a></h2>
+            </div>
+        </header>
+    </div>
+
+    <div class="form-container">
+        <h2>TRANSACTION API</h2>
+        <hr>
+        <form method="POST" action="{% url 'transaction' %}">
+            <!--add csrf token for sending data to the server-->
+            {% csrf_token %}
+
+            <div class="main-form">
+                <h3>Mandatory Parameters</h3>
+                <hr>
+                <div class="mandatory-data">
+                    <div class="form-field">
+                        <label for="txnid">Merchant Transaction ID<sup>*</sup></label>
+                        <input id="txnid" class="txnid" name="txnid" value="" placeholder="ASD12345">
+                    </div>
+    
+                    <div class="form-field">
+                        <label for="amount">Transaction Amount<sup>(should be float)*</sup></label>
+                        <input id="amount" class="amount" name="amount" value="" placeholder="125.25">
+                    </div>
+    
+                    <div class="form-field">
+                        <label for="email">Customer Email ID<sup>*</sup></label>
+                        <input id="email" class="email" name="email" value="" placeholder="trasaction@easebuzz.in">
+                    </div>
+    
+                    <div class="form-field">
+                        <label for="phone">Customer Phone Number<sup>*</sup></label>
+                        <input id="phone" class="phone" name="phone" value="" placeholder="0123456789">
+                    </div>
+             
+                </div>
+                
+                <div class="btn-submit">
+                    <button type="submit">Submit</button>  
+                </div> 
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

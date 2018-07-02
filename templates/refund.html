@@ -1,0 +1,58 @@
+<!--extends the base_layout.html-->
+{% extends "base_layout.html" %}
+
+{% block content %}
+        <div class="hedding">
+            <h2><a class="highlight" href="{% url 'index' %}">Back</a></h2>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>REFUND API</h2>
+        <hr>
+        <form method="POST" action="{% url 'refund' %}">
+            <!--add csrf token for sending data to the server-->
+            {% csrf_token %}
+            
+            <div class="main-form">
+                <h3>Mandatory Parameters</h3>
+                <hr>
+                <div class="mandatory-data">
+
+                    <div class="form-field">
+                        <label for="txnid">Easebuzz Transaction ID<sup>*</sup></label>
+                        <input id="txnid" class="txnid" name="txnid" value="" placeholder="SBD12345">
+                    </div>
+    
+                    <div class="form-field">
+                        <label for="refund_amount">Refund Amount<sup>(should be float)*</sup>
+                        </label>
+                        <input id="refund_amount" class="refund_amount" name="refund_amount" value="" placeholder="125.25">
+                    </div>
+    
+                    <div class="form-field">
+                        <label for="phone">Customer Phone Number<sup>*</sup></label>
+                        <input id="phone" class="phone" name="phone" value="" placeholder="0123456789">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Customer Email ID<sup>*</sup></label>
+                        <input id="email" class="email" name="email" value="" placeholder="refund@easebuzz.in">
+                    </div>
+    
+                    <div class="form-field">
+                        <label for="amount">Customer's Paid Amount<sup>(should be float)*</sup>
+                        </label>
+                        <input id="amount" class="amount" name="amount" value="" placeholder="125.25">
+                    </div>
+                </div>
+
+                <div class="btn-submit">
+                    <button type="submit">SUBMIT</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

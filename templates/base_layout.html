@@ -1,0 +1,45 @@
+<!-- import or load the static file -->
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Easebuzz Payment Gateway Kit</title>
+
+        <!--CSS file for date picker -->
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+        
+        <!--Add css file into the page-->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div class="grid-container">
+            <header class="wrapper">
+                <div class="logo">
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'images/eb-logo.svg' %}" alt="Easebuzz">
+                    </a>
+                </div>
+
+            {% block content %}
+            
+                 <!-- Every html page or templates comes inside of block -->
+
+            {% endblock %}
+
+        </div>
+
+         <!-- import javascript file -->  
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+         <!--import for date picker-->
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+        <!--Add javascript file into -->
+        <script src="{% static 'js/custom_javascript.js' %}"></script>        
+    </body>
+</html>
