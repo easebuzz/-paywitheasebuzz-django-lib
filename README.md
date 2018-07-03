@@ -1,7 +1,7 @@
 # paywitheasebuzz-python-django-lib
 Python-Django integration kit for pay with easebuzz pay.easebuzz.in
 
-# Requirement Software
+# Software Requirement
 *setup python-django kits on test/development/production environment install below software*
 1. pip
 2. python 2.7
