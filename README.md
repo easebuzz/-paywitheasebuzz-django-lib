@@ -57,31 +57,30 @@ https://docs.easebuzz.in/
     ```
         easebuzzObj = Easebuzz(MERCHANT_KEY, SALT, ENV)
     ```
-5. call Easebuzz class methods and function based on your's requirements.
+5. call Easebuzz class methods or function based on your's requirements.
     1. Initiate Payment API
         *POST Format and call initiatePaymentAPI*
         ```
         postDict = {
+            'txnid': 'T3SAT0B5OL',
+            'firstname': 'jitendra',
+            'phone': '1231231235',
+            'email': 'jitendra@gmail.com'
+            'amount': '1.03',
+            'productinfo': 'Apple Mobile',
+            'surl': 'http://localhost:8000/response/',
+            'furl': 'http://localhost:8000/response/',
             'city': 'aaaa',
             'zipcode': '123123',
             'address2': 'aaaa',
-            'firstname': 'jitendra',
             'state': 'aaaa',
             'address1': 'aaaa',
-            'surl': 'http://localhost:8000/response/',
-            'udf3': 'aaaa',
-            'txnid': 'T3SAT0B5OL',
-            'productinfo': 'Apple Mobile',
-            'furl': 'http://localhost:8000/response/',
-            'udf1': 'aaaa',
-            'phone': '1231231235',
-            'amount': '1.03',
-            'udf2': 'aaaa',
-            'udf5': 'aaaa',
-            'udf4': 'aaaa',
             'country': 'aaaa',
-            'csrfmiddlewaretoken': '6zKwuxucnwd3J2CXcFR3lj0nW8eiL8Y0i63YV3F8zvXDE4PfhjGD9WXBv72EEYZZ',
-            'email': 'jitendra@gmail.com'
+            'udf1': 'aaaa',
+            'udf2': 'aaaa',
+            'udf3': 'aaaa',
+            'udf4': 'aaaa',
+            'udf5': 'aaaa'
         }
 
         final_response = easebuzzObj.initiatePaymentAPI(postDict)
@@ -97,10 +96,9 @@ https://docs.easebuzz.in/
         *POST Format and call transactionAPI*
         ``` 
         postDict = {
-            'phone':'1231231235',
-            'csrfmiddlewaretoken':'X1vgdvX5eJfDeQSUx12XMuPxYmBTExTq9yOIE181qIZd9S5cCFRxA7MLxlpfxnUp',
             'txnid':'T300',
             'amount':'1.03',
+            'phone':'1231231235',
             'email':'jitendra@gmail.com'
         }
 
@@ -111,7 +109,6 @@ https://docs.easebuzz.in/
         *POST Format and call transactionDateAPI*
         ```
         postDict = {
-            'csrfmiddlewaretoken':'aQArNZMurJD9bPrWYRmZohRCPzsyXznnmnTTevXqDInJ6REe3vbzcUOQoygUQpom',
             'merchant_email':'jitendra@gmail.com',
             'transaction_date':'06-06-2018'
         }
@@ -127,7 +124,6 @@ https://docs.easebuzz.in/
             'refund_amount':'0.9',
             'phone':'1231231235',
             'amount':'1.03',
-            'csrfmiddlewaretoken':'rafbLZiPT3s6oP2uTqAyhjeViCr8gXP9DHyDcvtL52cGjRfMY4p85Wb9RBfu9NQ8',
             'email':'jitendra@gmail.com'
         }
 
@@ -138,7 +134,6 @@ https://docs.easebuzz.in/
         *POST Format and call payoutAPI*
         ```
         postDict = {
-            'csrfmiddlewaretoken':'4SGfTPO2B5mnq5rQ0lOcY5M0jw4X6FkhgpZHklZYN46Xl7E85ZDMMIJeSvSjZvlg',
             'merchant_email':'jitendra@gmail.com',
             'payout_date':'06-06-2018'
         }
@@ -147,7 +142,8 @@ https://docs.easebuzz.in/
         return render(request, 'response.html', {'response_data': final_response})
         ```
     6. Response of Inititate Payment API
-        *Note: request.POST - means holds Initiate Payment API response*
+    
+        *Initiate Payment API response will be sent on success URL or failure URL using HTTP form post.*
 
         ```
             final_response = easebuzzObj.easebuzzResponse(request.POST)
