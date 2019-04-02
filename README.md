@@ -1,4 +1,4 @@
-# paywitheasebuzz-python-django-lib
+# paywitheasebuzz-python-django-lib-python2.7
 Python-Django integration kit for pay with easebuzz pay.easebuzz.in
 
 # Software Requirement
