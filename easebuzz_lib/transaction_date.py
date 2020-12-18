@@ -150,12 +150,16 @@ def _checkArgumentValidation(*arg):
 '''
 def _removeSpaceAndPreparePostArray(params):
 
-    temp_distionary = {
-      'merchant_key' : params['merchant_key'].strip(),
-      'merchant_email' : params['merchant_email'].strip(),
-      'transaction_date' : params['transaction_date'].strip()
-    }
-    return temp_distionary
+    # temp_distionary = {
+    #   'merchant_key' : params['merchant_key'].strip(),
+    #   'merchant_email' : params['merchant_email'].strip(),
+    #   'transaction_date' : params['transaction_date'].strip()
+    # }
+    temp_dictionary = {}
+    for key in params:
+        temp_dictionary[key.encode('utf-8')] = str(params[key]).strip()
+
+    return temp_dictionary
 
 
 '''

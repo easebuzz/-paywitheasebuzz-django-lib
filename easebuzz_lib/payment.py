@@ -195,7 +195,7 @@ def _checkArgumentValidation(*arg):
 *
 '''
 def _removeSpaceAndPreparePostArray(params):
-
+    """
     temp_distionary = {
       'key' : params['key'].strip(),
       'txnid' : params['txnid'].strip(),
@@ -218,8 +218,12 @@ def _removeSpaceAndPreparePostArray(params):
       'country' : params['country'].strip(),
       'zipcode' : params['zipcode'].strip()
     }
-    return temp_distionary
+    """
+    temp_dictionary = {}
+    for key in params:
+        temp_dictionary[key.encode('utf-8')] = str(params[key]).strip()
 
+    return temp_dictionary
 
 '''
 * _typeValidation method check type validation for field.

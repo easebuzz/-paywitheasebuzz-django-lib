@@ -165,14 +165,18 @@ def _checkArgumentValidation(*arg):
 '''
 def _removeSpaceAndPreparePostArray(params):
 
-    temp_distionary = {
-      'key' : params['key'].strip(),
-      'txnid' : params['txnid'].strip(),
-      'amount' : params['amount'].strip(),
-      'email' : params['email'].strip(),
-      'phone' : params['phone'].strip()
-    }
-    return temp_distionary
+    # temp_distionary = {
+    #   'key' : params['key'].strip(),
+    #   'txnid' : params['txnid'].strip(),
+    #   'amount' : params['amount'].strip(),
+    #   'email' : params['email'].strip(),
+    #   'phone' : params['phone'].strip()
+    # }
+    temp_dictionary = {}
+    for key in params:
+        temp_dictionary[key.encode('utf-8')] = str(params[key]).strip()
+
+    return temp_dictionary
 
 
 '''
